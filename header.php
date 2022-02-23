@@ -36,27 +36,24 @@
       </button>
 
       <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="justify-content-center navbar-brand py-3 mt-2 mt-lg-0 d-lg-none" href="#">
-          <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="24" alt="MDB Logo"
-            loading="lazy" />
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
+      <!-- Navbar brand -->
+      <a class="justify-content-center navbar-brand py-3 mt-2 mt-lg-0 d-lg-none" href="#">
+        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="24" alt="MDB Logo"
+          loading="lazy" />
+      </a>
+      <?php
+        wp_nav_menu( array(
+          'theme_location'  => 'primary',
+          'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+          'container'       => 'div',
+          'container_class' => 'collapse navbar-collapse',
+          'container_id'    => 'navbarSupportedContent',
+          'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
+          'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+          'walker'          => new WP_Bootstrap_Navwalker(),
+        ) );
+        ?>
+
 
       <!-- Right elements -->
       <div class="d-flex align-items-center">
